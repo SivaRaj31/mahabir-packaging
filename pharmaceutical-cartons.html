@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Pharmaceutical Cartons | Mahabir Packaging</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- Website Icon -->
+  <link rel="icon" type="image/x-icon" href="mp logo.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Image container */
+    .image-box {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      background: white;
+    }
+
+    /* Shine animation */
+    .image-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+      );
+      transform: skewX(-25deg);
+      transition: 0.7s;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .image-box:hover::before {
+      left: 150%;
+    }
+
+    /* Main product image */
+    .product-detail-image {
+      width: 100%;
+      max-width: 560px;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.5s ease;
+    }
+
+    .image-box:hover .product-detail-image {
+      transform: scale(1.04);
+    }
+
+    /* Logo */
+    .logo-img {
+      width: 42px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* Feature cards */
+    .feature-card {
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Application badges */
+    .application-badge {
+      transition: all 0.25s ease;
+    }
+
+    .application-badge:hover {
+      transform: translateY(-2px);
+      background: #fee2e2;
+    }
+
+    /* Quote button */
+    .quote-btn {
+      transition: all 0.3s ease;
+    }
+
+    .quote-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .product-detail-image {
+        max-width: 100%;
+        height: 280px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-detail-image {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-slate-800">
+
+  <!-- ================= HEADER ================= -->
+  <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-lg">
+
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+
+      <!-- Logo / Brand -->
+      <a href="index.html" class="flex items-center gap-3">
+
+        <img
+          src="mp logo.png"
+          alt="Mahabir Packaging Logo"
+          class="logo-img shadow-sm"
+        />
+
+        <div class="font-bold text-lg">
+          <span class="text-red-400">Mahabir</span>
+          <span class="text-white"> Packaging</span>
+        </div>
+
+      </a>
+
+      <!-- Navigation -->
+      <div class="flex items-center gap-4">
+
+        <a
+          href="About Us.html"
+          class="hover:text-red-400 font-medium text-sm transition"
+        >
+          About Us
+        </a>
+
+        <a
+          href="index.html"
+          class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg font-semibold text-sm transition"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          Home
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+  <main>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="bg-slate-900 text-white py-20">
+
+      <div
+        class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center"
+      >
+
+        <!-- Hero Text -->
+        <div>
+
+          <p
+            class="text-red-400 uppercase tracking-[0.2em] text-xs font-bold mb-4"
+          >
+            Pharma & Healthcare
+          </p>
+
+          <h1
+            class="text-4xl md:text-5xl font-extrabold leading-tight"
+          >
+            Pharmaceutical Cartons
+          </h1>
+
+          <p class="mt-6 text-lg text-slate-300 leading-relaxed">
+            Hygienic and precision-printed cartons designed to meet strict
+            pharmaceutical standards.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+
+            <span
+              class="bg-red-600/20 border border-red-500/30 text-red-300 px-4 py-2 rounded-full text-sm"
+            >
+              Premium Quality
+            </span>
+
+            <span
+              class="bg-white/10 border border-white/10 text-slate-200 px-4 py-2 rounded-full text-sm"
+            >
+              Custom Printing
+            </span>
+
+            <span
+              class="bg-white/10 border border-white/10 text-slate-200 px-4 py-2 rounded-full text-sm"
+            >
+              Healthcare Packaging
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- Product Image -->
+        <div
+          class="image-box bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm shadow-2xl"
+        >
+
+          <!-- MP 4 IMAGE -->
+          <img
+            src="mp 4.jpg"
+            alt="Mahabir Packaging Pharmaceutical Cartons"
+            class="product-detail-image rounded-xl cursor-pointer"
+          />
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= DESCRIPTION ================= -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+
+      <div
+        class="bg-slate-50 border border-gray-200 rounded-2xl p-8 shadow-sm"
+      >
+
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">
+          Description
+        </h2>
+
+        <p class="text-gray-700 leading-relaxed">
+
+          Our Pharmaceutical Cartons are manufactured under strict quality
+          standards to ensure safety, hygiene, and compliance for medical and
+          healthcare packaging. Produced using high-grade duplex and virgin
+          paperboard, these cartons feature high-precision offset printing for
+          clear text, ingredient lists, dosage instructions, and brand
+          elements.
+
+          Suitable for medicine bottles, blister packs, syrups, tubes, and
+          diagnostic kits, our pharmaceutical packaging solutions offer
+          superior structural strength, tamper resistance, and custom
+          finishing options such as UV coating, embossing, and braille
+          printing to meet regulatory and consumer needs.
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES & APPLICATIONS ================= -->
+    <section
+      class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12"
+    >
+
+      <!-- Key Features -->
+      <div>
+
+        <h2 class="text-3xl font-bold text-slate-900 mb-6">
+          Key Features
+        </h2>
+
+        <ul class="space-y-4">
+
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-circle-check text-red-600"></i>
+            <span>Hygienic & Food-Grade Material</span>
+          </li>
+
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-circle-check text-red-600"></i>
+            <span>High Precision Offset Printing</span>
+          </li>
+
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-circle-check text-red-600"></i>
+            <span>Tamper Resistance</span>
+          </li>
+
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-circle-check text-red-600"></i>
+            <span>Braille & UV Finishing</span>
+          </li>
+
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-circle-check text-red-600"></i>
+            <span>Custom Sizes & Designs</span>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- Applications -->
+      <div>
+
+        <h2 class="text-3xl font-bold text-slate-900 mb-6">
+          Applications
+        </h2>
+
+        <div class="flex flex-wrap gap-3">
+
+          <span
+            class="application-badge bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-full text-sm"
+          >
+            Medicine Bottles
+          </span>
+
+          <span
+            class="application-badge bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-full text-sm"
+          >
+            Blister Packs
+          </span>
+
+          <span
+            class="application-badge bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-full text-sm"
+          >
+            Syrups & Tubes
+          </span>
+
+          <span
+            class="application-badge bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-full text-sm"
+          >
+            Diagnostic Kits
+          </span>
+
+          <span
+            class="application-badge bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-full text-sm"
+          >
+            Healthcare Supplies
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SPECIFICATIONS ================= -->
+    <section class="bg-white py-16 border-t border-gray-200">
+
+      <div class="max-w-6xl mx-auto px-4">
+
+        <h2 class="text-3xl font-bold text-slate-900 mb-8">
+          Specifications
+        </h2>
+
+        <div class="overflow-x-auto rounded-2xl border border-gray-200">
+
+          <table class="min-w-full text-left">
+
+            <tbody>
+
+              <tr class="border-b border-gray-200">
+
+                <th
+                  class="bg-slate-50 px-6 py-4 font-semibold text-slate-700 w-1/3"
+                >
+                  Specification
+                </th>
+
+                <td class="px-6 py-4">
+                  Details
+                </td>
+
+              </tr>
+
+
+              <tr class="border-b border-gray-200">
+
+                <th
+                  class="bg-slate-50 px-6 py-4 font-semibold text-slate-700"
+                >
+                  Material
+                </th>
+
+                <td class="px-6 py-4">
+                  Duplex Board
+                </td>
+
+              </tr>
+
+
+              <tr class="border-b border-gray-200">
+
+                <th
+                  class="bg-slate-50 px-6 py-4 font-semibold text-slate-700"
+                >
+                  Printing
+                </th>
+
+                <td class="px-6 py-4">
+                  Offset Printing
+                </td>
+
+              </tr>
+
+
+              <tr class="border-b border-gray-200">
+
+                <th
+                  class="bg-slate-50 px-6 py-4 font-semibold text-slate-700"
+                >
+                  Finish
+                </th>
+
+                <td class="px-6 py-4">
+                  Matte / Gloss
+                </td>
+
+              </tr>
+
+
+              <tr class="border-b border-gray-200">
+
+                <th
+                  class="bg-slate-50 px-6 py-4 font-semibold text-slate-700"
+                >
+                  Coating
+                </th>
+
+                <td class="px-6 py-4">
+                  UV
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <th
+                  class="bg-slate-50 px-6 py-4 font-semibold text-slate-700"
+                >
+                  Size
+                </th>
+
+                <td class="px-6 py-4">
+                  Custom
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= BENEFITS ================= -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+
+      <h2 class="text-3xl font-bold text-slate-900 mb-8">
+        Benefits
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+
+        <!-- Hygienic -->
+        <div
+          class="feature-card bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
+        >
+
+          <i
+            class="fa-solid fa-shield-heart text-red-600 text-xl mb-3"
+          ></i>
+
+          <h3 class="font-bold text-lg">
+            Hygienic
+          </h3>
+
+          <p class="text-gray-600 text-sm mt-2">
+            Safe and hygienic packaging solutions.
+          </p>
+
+        </div>
+
+
+        <!-- Premium -->
+        <div
+          class="feature-card bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
+        >
+
+          <i
+            class="fa-solid fa-award text-red-600 text-xl mb-3"
+          ></i>
+
+          <h3 class="font-bold text-lg">
+            Premium Quality
+          </h3>
+
+          <p class="text-gray-600 text-sm mt-2">
+            High-quality materials and precision printing.
+          </p>
+
+        </div>
+
+
+        <!-- Strength -->
+        <div
+          class="feature-card bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
+        >
+
+          <i
+            class="fa-solid fa-dumbbell text-red-600 text-xl mb-3"
+          ></i>
+
+          <h3 class="font-bold text-lg">
+            High Strength
+          </h3>
+
+          <p class="text-gray-600 text-sm mt-2">
+            Strong cartons designed for safe transportation.
+          </p>
+
+        </div>
+
+
+        <!-- Design -->
+        <div
+          class="feature-card bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
+        >
+
+          <i
+            class="fa-solid fa-palette text-red-600 text-xl mb-3"
+          ></i>
+
+          <h3 class="font-bold text-lg">
+            Attractive Design
+          </h3>
+
+          <p class="text-gray-600 text-sm mt-2">
+            Custom designs with professional finishing.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ISO CERTIFICATIONS ================= -->
+    <section
+      class="bg-slate-900 text-white py-12 border-t border-slate-800"
+    >
+
+      <div class="max-w-6xl mx-auto px-4">
+
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8 text-center md:text-left"
+        >
+
+          <div>
+
+            <span
+              class="text-xs font-bold uppercase tracking-widest text-red-400"
+            >
+              Certified Excellence
+            </span>
+
+            <h3 class="text-xl font-bold text-white mt-1">
+              ISO Certified Manufacturing Facilities
+            </h3>
+
+          </div>
+
+          <a
+            href="About Us.html"
+            class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white underline"
+          >
+            View All Certifications →
+          </a>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-3 gap-4">
+
+
+          <!-- ISO 9001 -->
+          <div
+            class="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center gap-3"
+          >
+
+            <i class="fa-solid fa-award text-red-500 text-xl"></i>
+
+            <div>
+
+              <div class="text-xs font-bold text-red-400">
+                ISO 9001:2015
+              </div>
+
+              <div class="text-xs text-gray-300 font-medium">
+                Quality Management System
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- ISO 14001 -->
+          <div
+            class="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center gap-3"
+          >
+
+            <i class="fa-solid fa-leaf text-emerald-400 text-xl"></i>
+
+            <div>
+
+              <div class="text-xs font-bold text-emerald-400">
+                ISO 14001:2015
+              </div>
+
+              <div class="text-xs text-gray-300 font-medium">
+                Environmental Management
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- ISO 45001 -->
+          <div
+            class="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center gap-3"
+          >
+
+            <i class="fa-solid fa-shield-halved text-blue-400 text-xl"></i>
+
+            <div>
+
+              <div class="text-xs font-bold text-blue-400">
+                ISO 45001:2018
+              </div>
+
+              <div class="text-xs text-gray-300 font-medium">
+                Occupational Health & Safety
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+    <section class="bg-red-600 text-white py-12">
+
+      <div
+        class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+
+        <div>
+
+          <p
+            class="text-sm uppercase tracking-[0.2em] text-red-100 font-bold"
+          >
+            Healthcare Packaging
+          </p>
+
+          <h3 class="text-2xl font-bold mt-2">
+            Build trust with compliant packaging.
+          </h3>
+
+          <p class="text-red-100 mt-2">
+            Get customized pharmaceutical carton solutions from
+            Mahabir Packaging.
+          </p>
+
+        </div>
+
+
+        <a
+          href="index.html#contact"
+          class="quote-btn bg-white text-red-600 hover:bg-slate-100 px-6 py-3 rounded-lg font-bold transition"
+        >
+          Request a Quote
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-slate-950 text-gray-400 py-6">
+
+    <div
+      class="max-w-6xl mx-auto px-4 text-center text-sm"
+    >
+
+      © 2026
+      <span class="text-red-400 font-semibold">
+        Mahabir Packaging
+      </span>.
+      All Rights Reserved.
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+
+    // Product image click effect
+    const productImage = document.querySelector(".product-detail-image");
+
+    if (productImage) {
+
+      productImage.addEventListener("click", function () {
+
+        if (this.requestFullscreen) {
+          this.requestFullscreen();
+        }
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mahabir Packaging | Industrial & Commercial Packaging Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="mp logo.png">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        .image-box {
+            position: relative;
+            overflow: hidden;
+            display: block;
+        }
+
+        .image-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.9), transparent);
+            transform: skewX(-25deg);
+            transition: 0.9s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .image-box:hover::before {
+            left: 130%;
+        }
+
+        .product-card {
+            border-radius: 24px;
+            transition: 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-image {
+            display: block;
+            transition: transform 0.8s ease, filter 0.8s ease;
+            transform-origin: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.02);
+            filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.12));
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 58px;
+            height: 58px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 14px 30px rgba(37, 211, 102, 0.4);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- TOP BAR -->
+    <div class="bg-slate-900 text-gray-300 text-sm py-2 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <a href="tel:+919840078667" class="hover:text-red-400 transition flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-red-500"></i> +91 9840078667
+                </a>
+                <a href="mailto:tamilnadcartons@ymail.com"
+                    class="hover:text-red-400 transition flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-red-500"></i> tamilnadcartons@ymail.com
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span><i class="fa-solid fa-location-dot text-red-500 mr-1"></i> Alwarpet, Chennai, TN</span>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3">
+                    <img src="mp logo.png" alt="Mahabir Packaging logo" class="w-12 h-12 rounded-xl shadow-sm object-cover" />
+                    <span class="font-bold text-2xl tracking-tight text-red-600">Mahabir <span
+                            class="text-red-600">Packaging</span></span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="#home" class="hover:text-red-600 transition">Home</a>
+                    <a href="About Us.html" class="hover:text-red-600 transition">About Us</a>
+                    
+                    <!-- Products Category Dropdown -->
+                    <div class="relative group">
+                        <a href="#products" class="hover:text-red-600 transition flex items-center gap-1.5 py-2">
+                            Products <i class="fa-solid fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform duration-200"></i>
+                        </a>
+                        <div class="absolute left-0 top-full w-60 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 py-2 z-50">
+                            <a href="#products" class="block px-4 py-2 text-xs font-bold uppercase text-red-600 tracking-wider hover:bg-red-50 border-b border-gray-100 mb-1">All Products</a>
+                            <a href="duplex-cartons.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-box text-red-500 text-xs"></i> Duplex Cartons
+                            </a>
+                            <a href="agriculture-boxes.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-wheat-awn text-red-500 text-xs"></i> Agriculture
+                            </a>
+                            <a href="pilferage-proof.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-lock text-red-500 text-xs"></i> Pilferage Proof
+                            </a>
+                            <a href="pharmaceutical-cartons.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-pills text-red-500 text-xs"></i> Pharma
+                            </a>
+                            <a href="plastic-corrugated.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-boxes-packing text-red-500 text-xs"></i> Plastic Boxes
+                            </a>
+                            <a href="printed-packaging.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-print text-red-500 text-xs"></i> Printed Boxes
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#contact"
+                        class="bg-red-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-red-700 transition shadow-md shadow-red-600/20">Contact
+                        Us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-700 hover:text-red-600 focus:outline-none p-2" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Drawer -->
+            <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 py-4 space-y-2 font-medium text-sm">
+                <a href="#home" class="mobile-link block px-3 py-2 rounded-md text-gray-700 hover:bg-red-50 hover:text-red-600 transition">Home</a>
+                <a href="About Us.html" class="mobile-link block px-3 py-2 rounded-md text-gray-700 hover:bg-red-50 hover:text-red-600 transition">About Us</a>
+                
+                
+                <div class="py-1">
+                    <a href="#products" class="mobile-link block px-3 py-2 font-semibold text-slate-900 hover:text-red-600 transition">Product Categories</a>
+                    <div class="pl-4 border-l-2 border-red-500 my-1 space-y-1 ml-3">
+                        <a href="duplex-cartons.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Duplex Cartons</a>
+                        <a href="agriculture-boxes.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Agriculture</a>
+                        <a href="pilferage-proof.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Pilferage Proof</a>
+                        <a href="pharmaceutical-cartons.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Pharma</a>
+                        <a href="plastic-corrugated.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Plastic Boxes</a>
+                        <a href="printed-packaging.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Printed Boxes</a>
+                    </div>
+                </div>
+
+                <a href="#contact" class="mobile-link block px-3 py-2 rounded-md bg-red-600 text-white font-semibold text-center hover:bg-red-700 transition">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative bg-slate-900 text-white py-24 md:py-32 overflow-hidden">
+        <div
+            class="absolute inset-0 opacity-10 bg-[radial-gradient(#ef4444_1px,transparent_1px)] [background-size:16px_16px]">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-[1.2fr_0.8fr] items-center gap-8">
+                <div class="max-w-3xl">
+                    <span
+                        class="inline-block bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                        Trusted Packaging Partner
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                        We Design & Develop <span class="text-red-500">Packing Solutions</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+                        Premium corrugated boxes, duplex cartons, wooden pallets & plywood pallets, and specialized industrial packaging
+                        designed for maximum security, durability, and visual appeal.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact"
+                            class="bg-red-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-red-700 transition shadow-lg shadow-red-600/30">
+                            Request Quote
+                        </a>
+                        <a href="#products"
+                            class="border border-gray-700 hover:border-gray-500 text-white font-medium px-8 py-4 rounded-xl transition">
+                            Explore Products
+                        </a>
+                    </div>
+                </div>
+                <div class="product-card image-box flex justify-center lg:justify-end">
+                    <img src="MP%202.PNG" alt="Mahabir Packaging product boxes" class="w-full max-w-[900px] h-auto lg:h-[350px] object-cover rounded-3xl transition-transform duration-500 hover:scale-105"
+         />
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 items-center mb-10">
+                <div>
+                    <span class="inline-block bg-red-500/10 text-red-600 font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                        Welcome to Mahabir Packaging
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Approved Packaging Vendor for Many Car Companies in India</h2>
+                    <p class="text-gray-600 leading-relaxed max-w-4xl">
+                        Mahabir Packaging is a leading manufacturer and supplier of a wide range of corrugated boxes in Chennai and South India. We are a reputed company in the packaging industry since 1971. We have grown and maintained our strong base of wide clientele across India.
+                    </p>
+                </div>
+
+                <div class="product-card image-box flex justify-center lg:justify-end relative lg:top-24">
+                    <img src="mp 3.jpg" alt="Mahabir Packaging product boxes" class="product-image w-full max-w-xl rounded-3xl border border-white/10 shadow-2xl shadow-black/20 object-cover"/>
+                 </div>
+                
+            </div>
+
+            <div class="grid lg:grid-cols-[1.5fr_0.9fr] gap-10 items-start">
+                <div class="space-y-5 text-gray-600 leading-relaxed">
+                    <p>
+                        We possess a manufacturing plant with the latest technology for computer-supported design, cutting, furrowing and adhesive processes, empowering us to fabricate high-quality packing and corrugated boxes from high-grade paper and glues.
+                    </p>
+                    <p>
+                        Our wide range of boxes are subjected to strict quality checks, starting from the selection and processing of the paper, adhesive strength and warp test to designing, cutting, printing alignment, etc., so that it characterizes lightweight, resistance to tear, bursting and splitting and accurate dimension.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="bg-red-50 border border-red-100 rounded-xl p-4">
+                            <h4 class="font-bold text-slate-900 mb-2">High quality premium quality boxes to fulfill all your requirements.</h4>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                            <h4 class="font-bold text-slate-900 mb-2">Economic and eco-friendly, made with high-quality raw materials.</h4>
+                        </div>
+                        <div class="bg-red-50 border border-red-100 rounded-xl p-4">
+                            <h4 class="font-bold text-slate-900 mb-2">Professionally designed boxes to cater to all your needs.</h4>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                            <h4 class="font-bold text-slate-900 mb-2">Durability and design at its best to ensure flawless products.</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-16">
+                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Why Choose Us?</h3>
+                    <div class="mb-6">
+                        <h4 class="text-xl font-bold text-red-600">Customise Packing Solution - ON TIME EVERY TIME</h4>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        We promise the finest quality products when you buy from us. Customization is our specialty; we aim to meet your individual needs and we deliver personalized and affordable products to our clients. Our team strives to create perfection and ensure that they reach you on time. We will adapt to be convenient for you and make sure you are satisfied with our services.
+                    </p>
+
+                    <div class="mb-4">
+                        <h5 class="font-bold text-slate-900 text-lg mb-3">We have been able to fetch a huge clientele base owing to:</h5>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-red-600"></i> Experienced professionals</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-red-600"></i> Best packaging material</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-red-600"></i> Total quality management</li>
+                        </ul>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-red-600"></i> Ethical business policies</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-red-600"></i> Transparent dealings</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-red-600"></i> Timely shipment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ISO CERTIFICATIONS SECTION -->
+    <section class="py-16 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
+                    Certified Quality Compliance
+                </span>
+                <h2 class="text-3xl font-extrabold tracking-tight">ISO Certified Manufacturing Excellence</h2>
+                <p class="text-gray-300 text-sm mt-2">Internationally accredited standards ensuring quality consistency, environmental safety, and zero-harm workplace operations.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-2xl flex items-center gap-4 hover:border-red-500/50 transition duration-300">
+                    <div class="w-14 h-14 bg-red-600/20 text-red-500 rounded-xl flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-red-400 uppercase tracking-wider block">ISO 9001:2015</span>
+                        <h4 class="font-bold text-white text-base">Quality Management System</h4>
+                        <p class="text-xs text-gray-400 mt-1">Standardized zero-defect quality control & batch consistency.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-2xl flex items-center gap-4 hover:border-emerald-500/50 transition duration-300">
+                    <div class="w-14 h-14 bg-emerald-600/20 text-emerald-400 rounded-xl flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block">ISO 14001:2015</span>
+                        <h4 class="font-bold text-white text-base">Environmental Management</h4>
+                        <p class="text-xs text-gray-400 mt-1">100% recyclable cardboard materials & eco-friendly processes.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500/50 transition duration-300">
+                    <div class="w-14 h-14 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider block">ISO 45001:2018</span>
+                        <h4 class="font-bold text-white text-base">Occupational Health & Safety</h4>
+                        <p class="text-xs text-gray-400 mt-1">Zero-harm plant safety, automated interlocks & staff welfare.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS GRID WITH IMAGES -->
+    <section id="products" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-slate-900">Our Product Portfolio</h2>
+                <p class="text-gray-600 mt-2">Comprehensive packaging solutions built for protection, presentation, and
+                    efficiency.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Product 1 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
+                    <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcR5N32NDqGRoEfo-zQy60_X_5fM5Aq6bfbNi4nnYccfdKjQmWeT1IlKJDbNmyVnCZ0YBeXO84QxWjxqJ98"
+                        alt="Corrugated Cardboard Box" class="w-full h-44 object-cover cursor-pointer" />
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-red-600 text-xl mb-2"><i class="fa-solid fa-box-open"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Corrugated Cardboard</h3>
+                            <p class="text-sm text-gray-600">Durable fluted cardboard boxes designed for general cargo
+                                and heavy transport.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <a href="corrugated-cardboard.html"
+                                class="text-red-600 text-sm font-semibold hover:underline flex items-center gap-1">Learn
+                                More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
+                    <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQbExSSixUrhPdneBS7VvT2qj2Bm4RJ2M4ZcFtCP043H_8gRn1WaJ8qAwYqG-xI1PCy0U_PnLxnwhqgQzU"
+                        alt="Pharmaceutical Cartons" class="w-full h-44 object-cover cursor-pointer" />
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-red-600 text-xl mb-2"><i class="fa-solid fa-pills"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Pharmaceutical Cartons</h3>
+                            <p class="text-sm text-gray-600">Hygienic, compliant, and precision-cut cartons built for
+                                healthcare products.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <a href="pharmaceutical-cartons.html"
+                                class="text-red-600 text-sm font-semibold hover:underline flex items-center gap-1">Learn
+                                More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
+                    <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSy3poncDNF38u5ONZkxTPcnXavf47kea_0VS_DrIABA8Yc6Xos8nRHBjwihuRaomzDlahKc1LCWdgSc9U"
+                        alt="Duplex Cartons" class="w-full h-44 object-cover cursor-pointer" />
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-red-600 text-xl mb-2"><i class="fa-solid fa-box"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Duplex Cartons</h3>
+                            <p class="text-sm text-gray-600">Smooth finish duplex paperboard ideal for consumer goods
+                                retail packaging.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <a href="duplex-cartons.html"
+                                class="text-red-600 text-sm font-semibold hover:underline flex items-center gap-1">Learn
+                                More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
+                    <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSJa-DybDoFeQ4rTREN5uvKGBy8YWLMKuVDKnK5A7cEskEpyVodgAzpuAqXtuiyUlQMOH7_uqpCZO6_Sp8"
+                        alt="Agriculture Boxes" class="w-full h-44 object-cover cursor-pointer" />
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-red-600 text-xl mb-2"><i class="fa-solid fa-wheat-awn"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Agriculture Boxes</h3>
+                            <p class="text-sm text-gray-600">Moisture-resistant ventilated packaging for fruits,
+                                vegetables, and fresh produce.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <a href="agriculture-boxes.html"
+                                class="text-red-600 text-sm font-semibold hover:underline flex items-center gap-1">Learn
+                                More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
+                    <img src="https://www.mahabirpackaging.co/wp-content/uploads/2020/08/corrugated-shipping-boxes-500x500-1.jpg"
+                        alt="Pilferage Proof Boxes" class="w-full h-44 object-cover cursor-pointer" />
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-red-600 text-xl mb-2"><i class="fa-solid fa-lock"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Pilferage Proof Boxes</h3>
+                            <p class="text-sm text-gray-600">Tamper-evident designs to prevent unauthorized opening
+                                during shipping.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <a href="pilferage-proof.html"
+                                class="text-red-600 text-sm font-semibold hover:underline flex items-center gap-1">Learn
+                                More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
+                    <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSrWFs41BGIq9PDljGciy4XCB-9mGjDxGa1FsyI8ZZ45Eyz0yxzfr7SwRKrHBQIhQMXnSAx9vapKeHOkKc"
+                        alt="Plastic Corrugated Sheets" class="w-full h-44 object-cover cursor-pointer" />
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-red-600 text-xl mb-2"><i class="fa-solid fa-boxes-packing"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Plastic Corrugated</h3>
+                            <p class="text-sm text-gray-600">Reusable, waterproof polypropylene sheet boxes for tough
+                                logistics.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <a href="plastic-corrugated.html"
+                                class="text-red-600 text-sm font-semibold hover:underline flex items-center gap-1">Learn
+                                More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
+                    <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSKTBsrE6mz9W2Lo0a_UMwH7e1mZTWbNOUhGgXZT_ntGR3LZG_rOsrvcz1wjKbgzH8grH3qojQnIU8c2bc"
+                        alt="Printed Packaging Boxes" class="w-full h-44 object-cover cursor-pointer" />
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-red-600 text-xl mb-2"><i class="fa-solid fa-print"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Printed Packaging</h3>
+                            <p class="text-sm text-gray-600">Custom multi-color branding and graphics directly printed
+                                on shipping boxes.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <a href="printed-packaging.html"
+                                class="text-red-600 text-sm font-semibold hover:underline flex items-center gap-1">Learn
+                                More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
+                    <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQMrpHWCSf5-atVP6CZnJXfWApubbRSthDWk85qPmlXT48LpPMymYIS6R9iN_z9qOcGMHpxIgQeN1g5bm0"
+                        alt="Wooden Pallets & Plywood Pallets" class="w-full h-44 object-cover cursor-pointer" />
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-red-600 text-xl mb-2"><i class="fa-solid fa-pallet"></i></div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Wooden Pallets & Plywood Pallets</h3>
+                            <p class="text-sm text-gray-600">Heavy-duty industrial wooden & plywood pallets built to handle severe
+                                weight loads.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <a href="wooden-pallets.html"
+                                class="text-red-600 text-sm font-semibold hover:underline flex items-center gap-1">Learn
+                                More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="pharmaceutical" class="py-20 bg-slate-50 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQbExSSixUrhPdneBS7VvT2qj2Bm4RJ2M4ZcFtCP043H_8gRn1WaJ8qAwYqG-xI1PCy0U_PnLxnwhqgQzU"
+                        alt="Pharmaceutical Cartons" class="rounded-2xl shadow-lg w-full h-[320px] object-cover" />
+                </div>
+                <div class="order-1 md:order-2">
+                    <span
+                        class="inline-block bg-red-500/10 text-red-600 font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                        Healthcare Standard
+                    </span>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Pharmaceutical Cartons Box</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Manufactured from high-quality materials using state-of-the-art technology. These cartons
+                        provide strength and rigorous compliance for packaging sensitive healthcare products and
+                        medications safely.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> Superior Strength</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> Quality Tested</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> Precision Sizing</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> Hygiene Compliant</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PLASTIC CORRUGATED BOXES SECTION -->
+    <section id="plastic-corrugated" class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span
+                        class="inline-block bg-red-500/10 text-red-600 font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                        Heavy-Duty Reusable
+                    </span>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Plastic Corrugated Boxes</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Durable polypropylene plastic sheet boxes designed for weatherproofing and heavy reusability
+                        across rugged industrial supply chains. Waterproof, lightweight, and tear-resistant.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> 100% Waterproof</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> Reusable & Eco-Friendly</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> High Durability</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> Lightweight Design</div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSrWFs41BGIq9PDljGciy4XCB-9mGjDxGa1FsyI8ZZ45Eyz0yxzfr7SwRKrHBQIhQMXnSAx9vapKeHOkKc"
+                        alt="Plastic Corrugated Boxes" class="rounded-2xl shadow-lg w-full h-[320px] object-cover" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PRINTED PACKAGING BOXES SECTION -->
+    <section id="printed-packaging" class="py-20 bg-slate-50 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSKTBsrE6mz9W2Lo0a_UMwH7e1mZTWbNOUhGgXZT_ntGR3LZG_rOsrvcz1wjKbgzH8grH3qojQnIU8c2bc"
+                        alt="Printed Packaging Boxes" class="rounded-2xl shadow-lg w-full h-[320px] object-cover" />
+                </div>
+                <div class="order-1 md:order-2">
+                    <span
+                        class="inline-block bg-red-500/10 text-red-600 font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                        Brand Presentation
+                    </span>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Printed Packaging Boxes</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Enhance brand identity with custom multi-color graphics, logos, and typography directly printed
+                        onto high-grade corrugated and carton boxes to make your products stand out on retail shelves.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> Custom Branding</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> High-Resolution Printing</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> Premium Aesthetics</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><i
+                                class="fa-solid fa-circle-check text-red-600"></i> Tailored Specifications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+
+                <!-- Contact Info -->
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Get In Touch</h2>
+                    <p class="text-gray-600 mb-8">Reach out directly via phone or email, or drop by our main office in
+                        Alwarpet, Chennai.</p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center shrink-0 font-bold">
+                                <i class="fa-solid fa-location-dot text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Office Address</h4>
+                                <p class="text-gray-600 text-sm mt-1">#B- 9, 305, TTK Road, Alwarpet,<br />Chennai -
+                                    600018, Tamil Nadu, India</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center shrink-0 font-bold">
+                                <i class="fa-solid fa-phone text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Call Us Directly</h4>
+                                <p class="text-gray-600 text-sm mt-1">Mobile: +91 9840078667 / 9080489612 / 9840533005
+                                </p>
+                                <p class="text-gray-600 text-sm">Landline: +91 44 24660668 / 0413 2678178</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center shrink-0 font-bold">
+                                <i class="fa-solid fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Email Addresses</h4>
+                                <p class="text-gray-600 text-sm mt-1">tamilnadcartons@ymail.com</p>
+                                <p class="text-gray-600 text-sm">klath@ymail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-gray-200">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6">Send Us a Message</h3>
+                    <div id="contact-alert" class="hidden mb-4 p-4 rounded-lg text-sm font-medium"></div>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="contact-name" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none transition"
+                                placeholder="Your name">
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="contact-email" required
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none transition"
+                                    placeholder="name@company.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+                                <input type="tel" id="contact-mobile" required
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none transition"
+                                    placeholder="+91 00000 00000">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Location / City</label>
+                            <input type="text" id="contact-location"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none transition"
+                                placeholder="e.g. Chennai">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Packaging Requirements</label>
+                            <textarea id="contact-message" rows="4" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none transition"
+                                placeholder="Describe your packaging box sizes, quantities, and type needed..."></textarea>
+                        </div>
+                        <button type="submit" id="contact-submit-btn"
+                            class="w-full bg-red-600 text-white font-bold py-3.5 rounded-lg hover:bg-red-700 transition shadow-md shadow-red-600/20 flex items-center justify-center gap-2">
+                            <span>Send Inquiry</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-gray-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <span class="font-bold text-xl text-white">Mahabir Packaging</span>
+                    <p class="text-sm mt-2 text-gray-400">Collaborative packaging manufacturing driven by reliability,
+                        customized dimensions, and secure logistics.</p>
+                        <p>B- 9, 305, TTK Road, Alwarpet, Chennai - 600018</p>
+                        <p>klath@ymail.com</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-red-400">About Us</a></li>
+                        <li><a href="#products" class="hover:text-red-400">Products Offered</a></li>
+                        <li><a href="duplex-cartons.html" class="hover:text-red-400">Duplex Cartons</a></li>
+                        <li><a href="agriculture-boxes.html" class="hover:text-red-400">Agriculture Boxes</a></li>
+                        <li><a href="pilferage-proof.html" class="hover:text-red-400">Pilferage Proof Boxes</a></li>
+                        <li><a href="#contact" class="hover:text-red-400">Contact & Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3">Social Connections</h4>
+                    <div class="flex justify-center md:justify-start space-x-4 text-lg">
+                        <a href="#" class="hover:text-red-400"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="hover:text-red-400"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="hover:text-red-400"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-red-400"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-sm text-center">
+                © All rights reserved. Mahabir Packaging.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu & Resend Form Handler -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Contact Form Submit Handler
+            const contactForm = document.getElementById('contact-form');
+            const contactAlert = document.getElementById('contact-alert');
+            const submitBtn = document.getElementById('contact-submit-btn');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const name = document.getElementById('contact-name').value;
+                    const email = document.getElementById('contact-email').value;
+                    const mobile = document.getElementById('contact-mobile').value;
+                    const location = document.getElementById('contact-location').value;
+                    const message = document.getElementById('contact-message').value;
+
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Sending...</span>';
+                    contactAlert.className = "hidden";
+
+                    try {
+                        // Tries relative endpoint or http://localhost:3000/api/send-email
+                        const endpoint = window.location.origin.startsWith('http') 
+                            ? '/api/send-email' 
+                            : 'http://localhost:3000/api/send-email';
+
+                        const response = await fetch(endpoint, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name, email, mobile, location, message })
+                        });
+
+                        const data = await response.json();
+
+                        if (response.ok && data.success) {
+                            contactAlert.className = "mb-4 p-4 rounded-lg text-sm font-medium bg-green-50 text-green-700 border border-green-200 block";
+                            contactAlert.innerHTML = '<i class="fa-solid fa-circle-check mr-2 text-green-600"></i> Thank you! Your inquiry has been sent to sivarajofficial7@gmail.com.';
+                            contactForm.reset();
+                        } else {
+                            contactAlert.className = "mb-4 p-4 rounded-lg text-sm font-medium bg-amber-50 text-amber-800 border border-amber-200 block";
+                            contactAlert.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></i> Unable to send: ${data.error || 'Server error'}. Please ensure local server is running.`;
+                        }
+                    } catch (err) {
+                        contactAlert.className = "mb-4 p-4 rounded-lg text-sm font-medium bg-red-50 text-red-700 border border-red-200 block";
+                        contactAlert.innerHTML = '<i class="fa-solid fa-triangle-exclamation mr-2 text-red-600"></i> Local server not detected. Please run <strong>node server.js</strong> in terminal and open <a href="http://localhost:3000" class="underline font-bold">http://localhost:3000</a>.';
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<span>Send Inquiry</span>';
+                    }
+                });
+            }
+        });
+    </script>
+
+    <a href="https://wa.me/919840078667?text=Hello%20Sir%2C%0A%0AI%20am%20interested%20in%20purchasing%20your%20products.%0A%0A%2A%2AMy%20Details%3A%2A%2A%0A%0A-%20%2A%2AName%3A%2A%2A%20%7B%7BYour%20Name%7D%7D%0A-%20%2A%2ACompany%3A%2A%2A%20%7B%7BCompany%20Name%7D%7D%0A-%20%2A%2AMobile%3A%2A%2A%20%7B%7BPhone%20Number%7D%7D%0A-%20%2A%2AEmail%3A%2A%2A%20%7B%7BEmail%20Address%7D%7D%0A-%20%2A%2ALocation%3A%2A%2A%20%7B%7BCity%2C%20State%7D%7D%0A%0A%2A%2AProduct%20Required%3A%2A%2A%20Corrugated%20Cardboard%20Boxes%0A%0A%2A%2ARequirements%3A%2A%2A%0A%0A-%20Quantity%3A%20%7B%7BQuantity%7D%7D%0A-%20Box%20Size%3A%20%7B%7BDimensions%7D%7D%0A-%20Printing%20Required%3A%20%7B%7BYes%2FNo%7D%7D%0A-%20Additional%20Requirements%3A%20%7B%7BYour%20Message%7D%7D%0A%0AKindly%20share%20the%20product%20details%2C%20pricing%2C%20minimum%20order%20quantity%2C%20delivery%20time%2C%20and%20quotation%20at%20your%20earliest%20convenience.%0A%0AThank%20you.%20I%20look%20forward%20to%20your%20response." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+</body>
+
+</html>

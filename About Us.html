@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Mahabir Packaging - Industrial & Commercial Packaging</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="mp logo.png">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        .image-box {
+            position: relative;
+            overflow: hidden;
+            display: block;
+        }
+
+        .image-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.9), transparent);
+            transform: skewX(-25deg);
+            transition: 0.9s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .image-box:hover::before {
+            left: 130%;
+        }
+
+        .product-card {
+            border-radius: 24px;
+            transition: 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 58px;
+            height: 58px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 14px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        /* REALISTIC TRUCK ROAD SCENE STYLES WITH DAY/NIGHT TOGGLE */
+        .truck-scene-section {
+            position: relative;
+            width: 100%;
+            height: 360px;
+            overflow: hidden;
+            background: linear-gradient(
+                to bottom,
+                #80d5ff 0%,
+                #eaf9ff 58%,
+                #79b95f 58%,
+                #5b9e48 100%
+            );
+            border-top: 1px solid #cbd5e1;
+            border-bottom: 1px solid #cbd5e1;
+            transition: background 1.5s ease;
+        }
+
+        /* NIGHT MODE SCENE */
+        .truck-scene-section.night {
+            background: linear-gradient(
+                to bottom,
+                #03051b 0%,
+                #101942 58%,
+                #172b20 58%,
+                #101a12 100%
+            );
+        }
+
+        .truck-scene-header {
+            position: absolute;
+            top: 15px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .truck-scene-header h2 {
+            font-size: clamp(26px, 4.5vw, 50px);
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #b40000;
+            text-shadow:
+                2px 2px 0 white,
+                4px 5px 6px rgba(0,0,0,0.25);
+            margin: 0;
+            transition: color 1.5s ease, text-shadow 1.5s ease;
+        }
+
+        .truck-scene-section.night .truck-scene-header h2 {
+            color: #ff4b4b;
+            text-shadow: 2px 2px 0 #101942, 4px 5px 6px rgba(0,0,0,0.5);
+        }
+
+        .truck-scene-header p {
+            margin-top: 4px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #222;
+            transition: color 1.5s ease;
+        }
+
+        .truck-scene-section.night .truck-scene-header p {
+            color: #e2e8f0;
+        }
+
+        /* SUN */
+        .truck-scene-sun {
+            position: absolute;
+            top: 15px;
+            right: 50px;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: #ffd83d;
+            box-shadow:
+                0 0 30px #ffe66b,
+                0 0 70px rgba(255,220,80,.7);
+            cursor: pointer;
+            z-index: 25;
+            transition: transform 1s ease, opacity 1s ease, box-shadow 1s ease;
+        }
+
+        .truck-scene-section.night .truck-scene-sun {
+            transform: translateY(-150px) scale(.3);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* MOON */
+        .truck-scene-moon {
+            position: absolute;
+            top: 15px;
+            right: 50px;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle at 35% 35%,
+                #fff,
+                #e8e8e8 55%,
+                #bdbdbd
+            );
+            box-shadow:
+                0 0 25px rgba(255,255,255,.8),
+                0 0 60px rgba(200,220,255,.45);
+            cursor: pointer;
+            z-index: 25;
+            opacity: 0;
+            transform: translateY(150px) scale(.3);
+            transition: transform 1s ease, opacity 1s ease;
+            pointer-events: none;
+        }
+
+        .truck-scene-section.night .truck-scene-moon {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .moon-crater {
+            position: absolute;
+            border-radius: 50%;
+            background: #c7c7c7;
+            opacity: .7;
+        }
+
+        .crater1 { width: 16px; height: 16px; left: 16px; top: 16px; }
+        .crater2 { width: 10px; height: 10px; right: 14px; top: 24px; }
+        .crater3 { width: 14px; height: 14px; left: 32px; bottom: 12px; }
+
+        /* STARS */
+        .truck-scene-stars {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            z-index: 1;
+        }
+
+        .truck-scene-section.night .truck-scene-stars {
+            opacity: 1;
+        }
+
+        .truck-scene-stars span {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        .truck-scene-stars span:nth-child(1) { left: 8%; top: 15%; }
+        .truck-scene-stars span:nth-child(2) { left: 18%; top: 30%; }
+        .truck-scene-stars span:nth-child(3) { left: 28%; top: 12%; }
+        .truck-scene-stars span:nth-child(4) { left: 38%; top: 25%; }
+        .truck-scene-stars span:nth-child(5) { left: 48%; top: 14%; }
+        .truck-scene-stars span:nth-child(6) { left: 58%; top: 30%; }
+        .truck-scene-stars span:nth-child(7) { left: 68%; top: 12%; }
+        .truck-scene-stars span:nth-child(8) { left: 78%; top: 28%; }
+        .truck-scene-stars span:nth-child(9) { left: 88%; top: 17%; }
+        .truck-scene-stars span:nth-child(10) { left: 94%; top: 35%; }
+        .truck-scene-stars span:nth-child(11) { left: 12%; top: 45%; }
+        .truck-scene-stars span:nth-child(12) { left: 35%; top: 40%; }
+        .truck-scene-stars span:nth-child(13) { left: 55%; top: 20%; }
+        .truck-scene-stars span:nth-child(14) { left: 73%; top: 45%; }
+        .truck-scene-stars span:nth-child(15) { left: 85%; top: 38%; }
+
+        @keyframes twinkle {
+            from { opacity: .25; transform: scale(.7); }
+            to { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* CLOUDS */
+        .truck-scene-cloud {
+            position: absolute;
+            width: 140px;
+            height: 42px;
+            background: white;
+            border-radius: 50px;
+            opacity: .85;
+            transition: opacity 1.5s ease, filter 1.5s ease;
+        }
+
+        .truck-scene-section.night .truck-scene-cloud {
+            opacity: .15;
+            filter: brightness(.3);
+        }
+
+        .truck-scene-cloud::before,
+        .truck-scene-cloud::after {
+            content: "";
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .truck-scene-cloud::before {
+            width: 60px;
+            height: 60px;
+            left: 18px;
+            top: -28px;
+        }
+
+        .truck-scene-cloud::after {
+            width: 70px;
+            height: 70px;
+            right: 12px;
+            top: -34px;
+        }
+
+        .truck-scene-cloud1 {
+            top: 70px;
+            left: 110%;
+            animation: cloudMove 30s linear infinite;
+        }
+
+        .truck-scene-cloud2 {
+            top: 130px;
+            left: 110%;
+            transform: scale(.7);
+            animation: cloudMove 40s linear infinite;
+        }
+
+        @keyframes cloudMove {
+            from { left: 110%; }
+            to { left: -250px; }
+        }
+
+        /* ROAD */
+        .truck-scene-road {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 140px;
+            background: #303030;
+            border-top: 8px solid #666;
+            transition: background 1.5s ease, border-color 1.5s ease;
+        }
+
+        .truck-scene-section.night .truck-scene-road {
+            background: #161616;
+            border-top-color: #333;
+        }
+
+        .truck-scene-road-lines {
+            position: absolute;
+            top: 60px;
+            width: 100%;
+            height: 10px;
+            background: repeating-linear-gradient(
+                to right,
+                #ffffff 0px,
+                #ffffff 140px,
+                transparent 140px,
+                transparent 280px
+            );
+            animation: roadMove .8s linear infinite;
+        }
+
+        @keyframes roadMove {
+            from { background-position: 0; }
+            to { background-position: 280px; }
+        }
+
+        /* TRUCK WRAPPER & HEADLIGHT BEAM */
+        .truck-photo-wrapper {
+            position: absolute;
+            left: 110%;
+            bottom: 42px;
+            width: 440px;
+            z-index: 5;
+            animation: truckMove 14s linear infinite;
+            cursor: pointer;
+        }
+
+        /* Front Headlight Beam glowing in night mode */
+        .truck-photo-wrapper::after {
+            content: "";
+            position: absolute;
+            left: -70px;
+            bottom: 20px;
+            width: 120px;
+            height: 50px;
+            background: radial-gradient(
+                ellipse at right,
+                rgba(255,245,150,.95),
+                rgba(255,230,80,.45) 40%,
+                transparent 75%
+            );
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .5s ease;
+            z-index: 6;
+        }
+
+        .truck-scene-section.night .truck-photo-wrapper::after {
+            opacity: 1;
+            animation: headlightGlow 1s infinite alternate;
+        }
+
+        @keyframes headlightGlow {
+            from { filter: brightness(.8); transform: scale(.95); }
+            to { filter: brightness(1.5); transform: scale(1.08); }
+        }
+
+        .truck-photo-img {
+            width: 440px;
+            height: auto;
+            display: block;
+            mix-blend-mode: multiply;
+            filter: drop-shadow(0 10px 5px rgba(0,0,0,.35));
+            user-select: none;
+            pointer-events: none;
+            transition: filter 1.5s ease;
+        }
+
+        .truck-scene-section.night .truck-photo-img {
+            filter: drop-shadow(0 15px 8px rgba(0,0,0,.7)) brightness(.82);
+        }
+
+        @keyframes truckMove {
+            0% { left: 110%; }
+            100% { left: -650px; }
+        }
+
+        .truck-scene-speed-line {
+            position: absolute;
+            right: -60px;
+            left: auto;
+            height: 5px;
+            background: rgba(255,255,255,.7);
+            border-radius: 10px;
+            animation: speedLine .5s linear infinite;
+        }
+
+        .truck-scene-speed1 { top: 50px; width: 80px; }
+        .truck-scene-speed2 { top: 80px; width: 55px; animation-delay: .15s; }
+        .truck-scene-speed3 { top: 110px; width: 100px; animation-delay: .25s; }
+
+        @keyframes speedLine {
+            from { transform: translateX(-30px); opacity: .8; }
+            to { transform: translateX(50px); opacity: 0; }
+        }
+
+        /* BRAND BOX */
+        .truck-scene-brand-box {
+            position: absolute;
+            bottom: 160px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 22px;
+            background: rgba(255,255,255,.9);
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.2);
+            z-index: 3;
+            transition: background 1.5s ease;
+        }
+
+        .truck-scene-section.night .truck-scene-brand-box {
+            background: rgba(20,20,30,.85);
+        }
+
+        .truck-scene-brand-box span {
+            font-size: 16px;
+            font-weight: 900;
+            color: #b40000;
+            letter-spacing: 2px;
+            transition: color 1.5s ease;
+        }
+
+        .truck-scene-section.night .truck-scene-brand-box span {
+            color: #ff4b4b;
+        }
+
+        .truck-photo-wrapper:hover { animation-play-state: paused; }
+        .truck-photo-wrapper:hover .truck-scene-speed-line { animation-play-state: paused; }
+
+        @media (max-width: 600px) {
+            .truck-photo-wrapper { width: 340px; bottom: 50px; }
+            .truck-photo-img { width: 340px; }
+            .truck-scene-header h2 { font-size: 26px; }
+            .truck-scene-header p { font-size: 12px; }
+            .truck-scene-sun, .truck-scene-moon { width: 60px; height: 60px; right: 25px; }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-slate-800 font-sans antialiased">
+
+    <!-- TOP BAR -->
+    <div class="bg-slate-900 text-gray-300 text-sm py-2 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <a href="tel:+919840078667" class="hover:text-red-400 transition flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-red-500"></i> +91 9840078667
+                </a>
+                <a href="mailto:tamilnadcartons@ymail.com"
+                    class="hover:text-red-400 transition flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-red-500"></i> tamilnadcartons@ymail.com
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span><i class="fa-solid fa-location-dot text-red-500 mr-1"></i> Alwarpet, Chennai, TN</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="mp logo.png" alt="Mahabir Packaging logo" class="w-12 h-12 rounded-xl shadow-sm object-cover" />
+                    <span class="font-bold text-2xl tracking-tight text-red-600">Mahabir <span
+                            class="text-red-600">Packaging</span></span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="index.html" class="hover:text-red-600 transition">Home</a>
+                    <a href="About Us.html" class="text-red-600 font-semibold transition">About Us</a>
+                    
+                    <!-- Products Category Dropdown -->
+                    <div class="relative group">
+                        <a href="index.html#products" class="hover:text-red-600 transition flex items-center gap-1.5 py-2">
+                            Product <i class="fa-solid fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform duration-200"></i>
+                        </a>
+                        <div class="absolute left-0 top-full w-60 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 py-2 z-50">
+                            <a href="index.html#products" class="block px-4 py-2 text-xs font-bold uppercase text-red-600 tracking-wider hover:bg-red-50 border-b border-gray-100 mb-1">All Products</a>
+                            <a href="duplex-cartons.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-box text-red-500 text-xs"></i> Duplex Cartons
+                            </a>
+                            <a href="agriculture-boxes.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-wheat-awn text-red-500 text-xs"></i> Agriculture
+                            </a>
+                            <a href="pilferage-proof.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-lock text-red-500 text-xs"></i> Pilferage Proof
+                            </a>
+                            <a href="pharmaceutical-cartons.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-pills text-red-500 text-xs"></i> Pharma
+                            </a>
+                            <a href="plastic-corrugated.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-boxes-packing text-red-500 text-xs"></i> Plastic Boxes
+                            </a>
+                            <a href="printed-packaging.html" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 flex items-center gap-2.5">
+                                <i class="fa-solid fa-print text-red-500 text-xs"></i> Printed Boxes
+                            </a>
+                        </div>
+                    </div>
+                    <a href="index.html#contact"
+                        class="bg-red-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-red-700 transition shadow-md shadow-red-600/20">Contact
+                        Us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-700 hover:text-red-600 focus:outline-none p-2" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Drawer -->
+            <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 py-4 space-y-2 font-medium text-sm">
+                <a href="index.html" class="mobile-link block px-3 py-2 rounded-md text-gray-700 hover:bg-red-50 hover:text-red-600 transition">Home</a>
+                <a href="About Us.html" class="mobile-link block px-3 py-2 rounded-md bg-red-50 text-red-600 font-semibold transition">About Us</a>
+                
+                <div class="py-1">
+                    <a href="index.html#products" class="mobile-link block px-3 py-2 font-semibold text-slate-900 hover:text-red-600 transition">Product Categories</a>
+                    <div class="pl-4 border-l-2 border-red-500 my-1 space-y-1 ml-3">
+                        <a href="duplex-cartons.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Duplex Cartons</a>
+                        <a href="agriculture-boxes.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Agriculture</a>
+                        <a href="pilferage-proof.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Pilferage Proof</a>
+                        <a href="pharmaceutical-cartons.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Pharma</a>
+                        <a href="plastic-corrugated.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Plastic Boxes</a>
+                        <a href="printed-packaging.html" class="mobile-link block px-3 py-1.5 rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600 transition text-xs font-medium">Printed Boxes</a>
+                    </div>
+                </div>
+
+                <a href="index.html#contact" class="mobile-link block px-3 py-2 rounded-md bg-red-600 text-white font-semibold text-center hover:bg-red-700 transition">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-slate-900 text-white py-20 md:py-28 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ef4444_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
+                Welcome to Mahabir Packaging
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                Trusted Packaging Manufacturer <span class="text-red-500">Since 1971</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+                Mahabir Packaging is one of India's leading manufacturers of corrugated boxes, duplex cartons, industrial packaging, and customized packaging solutions with over five decades of industrial excellence.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-4">
+                <div class="bg-white/5 backdrop-blur border border-white/10 p-4 rounded-2xl">
+                    <span class="block text-3xl font-extrabold text-red-500">50+</span>
+                    <span class="text-xs text-gray-300 font-medium">Years Experience</span>
+                </div>
+                <div class="bg-white/5 backdrop-blur border border-white/10 p-4 rounded-2xl">
+                    <span class="block text-3xl font-extrabold text-red-500">500+</span>
+                    <span class="text-xs text-gray-300 font-medium">Happy Clients</span>
+                </div>
+                <div class="bg-white/5 backdrop-blur border border-white/10 p-4 rounded-2xl">
+                    <span class="block text-3xl font-extrabold text-red-500">1000+</span>
+                    <span class="text-xs text-gray-300 font-medium">Products Delivered</span>
+                </div>
+                <div class="bg-white/5 backdrop-blur border border-white/10 p-4 rounded-2xl">
+                    <span class="block text-3xl font-extrabold text-red-500">100%</span>
+                    <span class="text-xs text-gray-300 font-medium">Quality Assurance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPANY OVERVIEW & LEGACY -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <span class="inline-block bg-red-500/10 text-red-600 font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                        Delivering Excellence in Packaging
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                        Approved Packaging Vendor for Leading Automotive & Industrial Brands
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Mahabir Packaging is a leading manufacturer and supplier of a wide range of packing boxes in Chennai and across India. Established in 1971, we have built and maintained a strong base of wide clientele nationwide.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        We possess a state-of-the-art manufacturing plant equipped with the latest technology for computerized design, high-precision cutting, furrowing, and adhesive processes. This empowers us to fabricate high-grade paper and corrugated boxes tailored to strict client specifications.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-3 pt-2">
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-800 bg-red-50/60 p-3 rounded-xl border border-red-100">
+                            <i class="fa-solid fa-circle-check text-red-600 text-lg shrink-0"></i>
+                            <span>Selection of high-grade raw paper</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-800 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                            <i class="fa-solid fa-circle-check text-red-600 text-lg shrink-0"></i>
+                            <span>Adhesive strength & warp testing</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-800 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                            <i class="fa-solid fa-circle-check text-red-600 text-lg shrink-0"></i>
+                            <span>Bursting & tear resistance testing</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-800 bg-red-50/60 p-3 rounded-xl border border-red-100">
+                            <i class="fa-solid fa-circle-check text-red-600 text-lg shrink-0"></i>
+                            <span>Computerized precision alignment</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card image-box relative">
+                    <img src="MP 2.png" alt="Mahabir Packaging Manufacturing" class="w-full h-[420px] object-cover rounded-3xl shadow-xl border border-gray-100" />
+                </div>
+            </div>
+
+            <!-- DETAILED QUALITY & INDUSTRY APPLICATIONS -->
+            <div class="bg-slate-50 border border-gray-200 rounded-3xl p-8 md:p-12">
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Strict Quality Control & Diverse Applications</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    Our wide range of packing boxes include <strong>Duplex Cartons, Pharmaceutical Cartons, Automobile Packaging Boxes, Printed Packaging Boxes, Agriculture Packaging, Pilferage Proof Corrugated Boxes, Plastic Corrugated Boxes, Wooden Pallets & Plywood Pallets, and Corrugated Cardboard Boxes</strong>.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-8">
+                    These solutions cater to diverse industries such as fresh fruits & vegetables, footwear, pesticides, pet bottles, pharmaceuticals, ceramic tiles, electronics, and automotive manufacturing. All raw materials are sourced from renowned suppliers and pass through rigorous in-house quality checks for dimensional accuracy, heavy load-bearing capacity, printing fidelity, and environmental durability.
+                </p>
+
+                <div class="grid sm:grid-cols-3 gap-4 text-center">
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                        <i class="fa-solid fa-microscope text-red-600 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-slate-900 text-sm">In-House Testing Lab</h4>
+                        <p class="text-xs text-gray-500 mt-1">Multi-stage testing from paper selection to burst testing.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                        <i class="fa-solid fa-leaf text-red-600 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-slate-900 text-sm">Eco-Friendly Materials</h4>
+                        <p class="text-xs text-gray-500 mt-1">100% recyclable, sustainable, and heavy-duty cardboard.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                        <i class="fa-solid fa-gears text-red-600 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-slate-900 text-sm">Automated Production</h4>
+                        <p class="text-xs text-gray-500 mt-1">State-of-the-art computer-assisted cutting and slitting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION, VISION & VALUES -->
+    <section class="py-20 bg-slate-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="bg-red-500/10 text-red-600 font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
+                    Our Foundation
+                </span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-3">Mission, Vision & Core Values</h2>
+                <p class="text-gray-600 mt-2">The principles that drive our innovation and commitment to every client.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Mission -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Our Mission</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        To provide innovative, durable, and eco-friendly packaging solutions while maintaining the highest standards of quality, accuracy, and customer satisfaction across India.
+                    </p>
+                </div>
+
+                <!-- Vision -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Our Vision</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        To become India's most trusted and technologically advanced packaging manufacturer through continuous innovation, sustainable manufacturing practices, and customer-first service.
+                    </p>
+                </div>
+
+                <!-- Values -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Our Values</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Integrity, Uncompromising Quality, Continuous Innovation, Customer Trust, Timely Delivery, and Responsible Environmental Stewardship.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ISO CERTIFICATIONS & QUALITY COMPLIANCE SECTION -->
+    <section class="py-20 bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="bg-red-500/10 text-red-600 font-bold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-red-500/20">
+                    Certified Quality Standards
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight">
+                    ISO Certified Operations & Management Systems
+                </h2>
+                <p class="text-gray-600 mt-3 text-base leading-relaxed">
+                    Mahabir Packaging adheres to internationally recognized ISO standards to ensure premium quality, environmental responsibility, and workplace safety across every manufacturing process.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- ISO 9001:2015 Card -->
+                <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="w-14 h-14 bg-red-600/10 text-red-600 rounded-2xl flex items-center justify-center text-2xl font-black group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
+                                <i class="fa-solid fa-award"></i>
+                            </span>
+                            <span class="bg-red-100 text-red-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                                QMS Certified
+                            </span>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mb-2">ISO 9001:2015</h3>
+                        <p class="text-xs font-bold text-red-600 uppercase tracking-wide mb-4">Quality Management System</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Ensures standardized business operations, rigorous multi-stage quality inspections, raw material testing, and operational consistency across all production runs.
+                        </p>
+                    </div>
+                    <ul class="space-y-2.5 pt-4 border-t border-gray-100 text-xs font-semibold text-slate-700">
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-red-600 text-sm"></i>
+                            <span>Zero-defect quality assurance protocols</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-red-600 text-sm"></i>
+                            <span>Standardized batch-to-batch consistency</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-red-600 text-sm"></i>
+                            <span>Continuous process audit & refinement</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ISO 14001:2015 Card -->
+                <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="w-14 h-14 bg-emerald-600/10 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl font-black group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                                <i class="fa-solid fa-leaf"></i>
+                            </span>
+                            <span class="bg-emerald-100 text-emerald-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                                EMS Certified
+                            </span>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mb-2">ISO 14001:2015</h3>
+                        <p class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-4">Environmental Management System</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Framework for eco-friendly manufacturing, 100% recyclable cardboard materials, low-carbon production processes, and responsible waste reduction.
+                        </p>
+                    </div>
+                    <ul class="space-y-2.5 pt-4 border-t border-gray-100 text-xs font-semibold text-slate-700">
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i>
+                            <span>100% Recyclable kraft & cardboard material</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i>
+                            <span>Eco-friendly starch adhesives & bio-inks</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i>
+                            <span>Sustainable waste recycling & reduction</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ISO 45001:2018 Card -->
+                <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="w-14 h-14 bg-blue-600/10 text-blue-600 rounded-2xl flex items-center justify-center text-2xl font-black group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </span>
+                            <span class="bg-blue-100 text-blue-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                                OH&S Certified
+                            </span>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mb-2">ISO 45001:2018</h3>
+                        <p class="text-xs font-bold text-blue-600 uppercase tracking-wide mb-4">Occupational Health & Safety</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Comprehensive safety protocols protecting plant personnel, machine safeguarding on heavy slitters/slotters, and proactive health risk prevention.
+                        </p>
+                    </div>
+                    <ul class="space-y-2.5 pt-4 border-t border-gray-100 text-xs font-semibold text-slate-700">
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-blue-600 text-sm"></i>
+                            <span>Zero-harm workplace safety policy</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-blue-600 text-sm"></i>
+                            <span>Computerized machine safety interlocks</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-blue-600 text-sm"></i>
+                            <span>Certified staff health & safety training</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="py-20 bg-slate-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="bg-red-500/10 text-red-600 font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
+                    Why Choose Us
+                </span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-3">Customized Packaging Solutions</h2>
+                <p class="text-red-600 font-bold text-lg mt-1">ON TIME EVERY TIME</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center hover:bg-white hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Premium Quality</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Every product is manufactured using high-quality raw materials and passes strict quality inspections before dispatch.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center hover:bg-white hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Advanced Manufacturing</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Modern production facilities with computer-guided technology ensure precision sizing and consistency in every batch.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center hover:bg-white hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">On-Time Delivery</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Streamlined production scheduling and reliable logistics ensure your packaging orders arrive safely on schedule.
+                    </p>
+                </div>
+            </div>
+
+            <!-- KEY ADVANTAGES LIST -->
+            <div class="bg-slate-900 text-white rounded-3xl p-8 md:p-12 shadow-xl">
+                <h4 class="text-xl font-bold mb-6 text-center md:text-left">We have built a nationwide clientele owing to:</h4>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-red-500 text-xl"></i>
+                        <span class="font-medium text-gray-200">Experienced Professionals</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-red-500 text-xl"></i>
+                        <span class="font-medium text-gray-200">Best Packaging Material</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-red-500 text-xl"></i>
+                        <span class="font-medium text-gray-200">Total Quality Management</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-red-500 text-xl"></i>
+                        <span class="font-medium text-gray-200">Ethical Business Policies</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-red-500 text-xl"></i>
+                        <span class="font-medium text-gray-200">Transparent Dealings</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-red-500 text-xl"></i>
+                        <span class="font-medium text-gray-200">Timely Nationwide Shipment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REALISTIC TRUCK ROAD SCENE SECTION WITH DAY / NIGHT TOGGLE -->
+    <div class="truck-scene-section" id="truck-scene">
+        <div class="truck-scene-header">
+            <h2>MAHABIR PACKAGING</h2>
+            <p>Reliable Packaging • Safe Delivery • Trusted Service</p>
+        </div>
+
+        <!-- SUN (Click for Night) -->
+        <div class="truck-scene-sun" id="sun" title="Click Sun for Night Mode"></div>
+
+        <!-- MOON (Click for Day) -->
+        <div class="truck-scene-moon" id="moon" title="Click Moon for Day Mode">
+            <div class="moon-crater crater1"></div>
+            <div class="moon-crater crater2"></div>
+            <div class="moon-crater crater3"></div>
+        </div>
+
+        <!-- STARS -->
+        <div class="truck-scene-stars" id="stars">
+            <span>✦</span><span>★</span><span>✦</span><span>·</span><span>★</span>
+            <span>✦</span><span>·</span><span>★</span><span>✦</span><span>·</span>
+            <span>★</span><span>✦</span><span>·</span><span>★</span><span>✦</span>
+        </div>
+
+        <!-- CLOUDS -->
+        <div class="truck-scene-cloud truck-scene-cloud1"></div>
+        <div class="truck-scene-cloud truck-scene-cloud2"></div>
+
+        <!-- TRUCK WRAPPER -->
+        <div class="truck-photo-wrapper">
+            <div class="truck-scene-speed-line truck-scene-speed1"></div>
+            <div class="truck-scene-speed-line truck-scene-speed2"></div>
+            <div class="truck-scene-speed-line truck-scene-speed3"></div>
+
+            <img src="truck 2.png" class="truck-photo-img" alt="Mahabir Packaging Truck">
+        </div>
+
+        <!-- BRAND BOX -->
+        <div class="truck-scene-brand-box">
+            <span>MAHABIR PACKAGING</span>
+        </div>
+
+        <!-- ROAD -->
+        <div class="truck-scene-road">
+            <div class="truck-scene-road-lines"></div>
+        </div>
+    </div>
+
+    <!-- CALL TO ACTION -->
+    <section class="bg-red-600 text-white py-14">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <h3 class="text-2xl md:text-3xl font-extrabold">Looking for Custom Packaging Solutions?</h3>
+                <p class="text-red-100 mt-2">Get in touch with our expert engineering team for custom sizes, branding, and quotes.</p>
+            </div>
+            <a href="index.html#contact" class="bg-white text-red-600 hover:bg-slate-100 px-8 py-3.5 rounded-xl font-bold transition shadow-lg shrink-0">
+                Contact Us Now
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-gray-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <span class="font-bold text-xl text-white">Mahabir Packaging</span>
+                    <p class="text-sm mt-2 text-gray-400">Collaborative packaging manufacturing driven by reliability, customized dimensions, and secure logistics.</p>
+                    <p class="text-sm mt-3 text-gray-400">#B- 9, 305, TTK Road, Alwarpet, Chennai - 600018</p>
+                    <p class="text-sm text-gray-400">tamilnadcartons@ymail.com</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-red-400 transition">Home</a></li>
+                        <li><a href="About Us.html" class="hover:text-red-400 transition">About Us</a></li>
+                        <li><a href="index.html#products" class="hover:text-red-400 transition">Products Offered</a></li>
+                        <li><a href="duplex-cartons.html" class="hover:text-red-400 transition">Duplex Cartons</a></li>
+                        <li><a href="agriculture-boxes.html" class="hover:text-red-400 transition">Agriculture Boxes</a></li>
+                        <li><a href="pilferage-proof.html" class="hover:text-red-400 transition">Pilferage Proof Boxes</a></li>
+                        <li><a href="index.html#contact" class="hover:text-red-400 transition">Contact & Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3">Social Connections</h4>
+                    <div class="flex justify-center md:justify-start space-x-4 text-lg">
+                        <a href="#" class="hover:text-red-400 transition"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="hover:text-red-400 transition"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="hover:text-red-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-red-400 transition"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-sm text-center">
+                © All rights reserved. Mahabir Packaging.
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/919840078667" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- MOBILE MENU TOGGLE & REALISTIC TRUCK DAY/NIGHT SCRIPT -->
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        /* Day / Night Control */
+        const sun = document.getElementById("sun");
+        const moon = document.getElementById("moon");
+        const truckScene = document.getElementById("truck-scene");
+
+        if (sun && truckScene) {
+            sun.addEventListener("click", () => {
+                truckScene.classList.add("night");
+            });
+        }
+
+        if (moon && truckScene) {
+            moon.addEventListener("click", () => {
+                truckScene.classList.remove("night");
+            });
+        }
+
+        /* Realistic Truck Control */
+        const photoTruck = document.querySelector(".truck-photo-wrapper");
+        if (photoTruck) {
+            photoTruck.addEventListener("mouseenter", () => {
+                photoTruck.style.animationPlayState = "paused";
+            });
+
+            photoTruck.addEventListener("mouseleave", () => {
+                photoTruck.style.animationPlayState = "running";
+            });
+
+            photoTruck.addEventListener("click", () => {
+                photoTruck.style.animation = "none";
+                void photoTruck.offsetWidth;
+                photoTruck.style.animation = "truckMove 14s linear infinite";
+            });
+        }
+    </script>
+</body>
+
+</html>
